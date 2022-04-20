@@ -1,7 +1,5 @@
-'use strict';
+'use strict'
 
-const react = require('..');
+const react = require('..')
 
-describe('react', () => {
-    it('needs tests');
-});
+describe('react', () => {})
