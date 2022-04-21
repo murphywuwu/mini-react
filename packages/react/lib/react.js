@@ -1,7 +1,16 @@
-'use strict';
+module.exports = {
+  createElement: function (type, props, ...params) {
+    let children = params
+    if (params.length == 1) {
+      children = params[0]
+    }
 
-module.exports = react;
-
-function react() {
-    // TODO
+    return {
+      type,
+      props: {
+        children,
+        ...props,
+      },
+    }
+  },
 }
