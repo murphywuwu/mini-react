@@ -1,5 +1,10 @@
 function renderDOM(element) {
   const { type, props } = element
+
+  if (typeof type == 'function') {
+    const element = type(props)
+    return renderDOM(element)
+  }
   const children = props.children
 
   // 第一步创建dom
@@ -32,7 +37,12 @@ function renderDOM(element) {
   // 支持复杂虚拟DOM树
   if (Array.isArray(children)) {
     children.forEach((element) => {
-      const childNode = renderDOM(element)
+      let childNode
+      if (typeof element == 'string') {
+        childNode = document.createTextNode(element)
+      } else {
+        childNode = renderDOM(element)
+      }
       node.appendChild(childNode)
     })
   }
