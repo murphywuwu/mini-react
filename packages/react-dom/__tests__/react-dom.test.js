@@ -34,16 +34,30 @@ describe('react-dom', () => {
     })
 
     describe('support function component', function () {
-      test('simple', function () {
-        const root = document.createElement('root')
-        function Welcome(props) {
-          return React.createElement('h1', null, 'hello, ', props.name)
-        }
-        const element = React.createElement(Welcome, { name: 'world' })
+      describe('simple', function () {
+        test('with props', function () {
+          const root = document.createElement('root')
+          function Welcome(props) {
+            return React.createElement('h1', null, 'hello, ', props.name)
+          }
+          const element = React.createElement(Welcome, { name: 'world' })
 
-        ReactDOM.render(element, root)
+          ReactDOM.render(element, root)
 
-        expect(root.innerHTML).toBe('<h1>hello, world</h1>')
+          expect(root.innerHTML).toBe('<h1>hello, world</h1>')
+        })
+
+        test('withought props', function () {
+          const root = document.createElement('root')
+          function Welcome(props) {
+            return React.createElement('h1', null, 'hello, ', props.name)
+          }
+          const element = React.createElement(Welcome)
+
+          ReactDOM.render(element, root)
+
+          expect(root.innerHTML).toBe('<h1>hello, </h1>')
+        })
       })
 
       test('composite', function () {})
