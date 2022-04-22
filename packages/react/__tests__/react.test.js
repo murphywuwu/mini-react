@@ -66,5 +66,28 @@ describe('react', () => {
         },
       })
     })
+
+    describe('support function component', function () {
+      test('simple', function () {
+        function Welcome(props) {
+          return React.createElement('h1', null, 'hello, ', props.name)
+        }
+
+        const element = React.createElement(Welcome, { name: 'world' })
+
+        expect(typeof element.type).toBe('function')
+        expect(element.props).toEqual({ name: 'world' })
+
+        const fn = element.type
+        expect(fn(element.props)).toEqual({
+          type: 'h1',
+          props: {
+            children: ['hello, ', 'world'],
+          },
+        })
+      })
+
+      test('composite', function () {})
+    })
   })
 })
