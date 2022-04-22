@@ -37,6 +37,8 @@ function renderDOM(element) {
   // 支持复杂虚拟DOM树
   if (Array.isArray(children)) {
     children.forEach((element) => {
+      if (typeof element == 'undefined') return
+
       let childNode
       if (typeof element == 'string') {
         childNode = document.createTextNode(element)
