@@ -60,7 +60,36 @@ describe('react-dom', () => {
         })
       })
 
-      test('composite', function () {})
+      test('composite', function () {
+        const root = document.createElement('root')
+
+        function Welcome(props) {
+          return React.createElement('h1', null, 'hello, ', props.name)
+        }
+
+        function App() {
+          return React.createElement(
+            'div',
+            null,
+            React.createElement(Welcome, {
+              name: 'Sara',
+            }),
+            React.createElement(Welcome, {
+              name: 'Cahal',
+            }),
+            React.createElement(Welcome, {
+              name: 'Edite',
+            }),
+          )
+        }
+
+        const element = React.createElement(App, null)
+
+        ReactDOM.render(element, root)
+        expect(root.innerHTML).toBe(
+          '<div><h1>hello, Sara</h1><h1>hello, Cahal</h1><h1>hello, Edite</h1></div>',
+        )
+      })
     })
   })
 })
