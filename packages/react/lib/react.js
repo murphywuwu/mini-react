@@ -1,10 +1,6 @@
 module.exports = {
-  createElement: function (type, props, ...params) {
-    let children = params
-    if (params.length == 1) {
-      children = params[0]
-    }
-
+  createElement: function (type, props, children) {
+ 
     return {
       type,
       props: {
