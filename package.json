@@ -6,5 +6,16 @@
   },
   "workspaces": [
     "packages/*"
-  ]
+  ],
+  "scripts": {
+    "test": "jest",
+    "test:cov": "jest --coverage",
+    "test:watch": "jest --watch",
+    "test:react": "jest packages/react/",
+    "test:react:cov": "jest packages/react/ --coverage",
+    "test:react:w": "jest packages/react/ --watch",
+    "test:react-dom": "jest packages/react-dom/",
+    "test:react-dom:cov": "jest packages/react-dom/ --coverage",
+    "test:react-dom:w": "jest packages/react-dom/ --watch"
+  }
 }

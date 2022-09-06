@@ -16,11 +16,6 @@
   "publishConfig": {
     "registry": "https://registry.npm.taobao.org/"
   },
-  "scripts": {
-    "test": "jest",
-    "test:cov": "jest --coverage",
-    "test:watch": "jest --watch --testTimeout 30000"
-  },
   "devDependencies": {
     "jest": "^27.5.1"
   }
