@@ -1,6 +1,18 @@
-const { aliasWebpack, aliasJest } = require('react-app-alias-ex')
+module.exports = function override(config, env) {
+  const { module } = config;
+  const { rules } = module;
+  
+  config.module.rules = [
+    ...rules,
+    {
+      test: /\.(js|mjs|jsx|ts|tsx)$/,
+      loader: require.resolve('babel-loader'),
+      exclude: /node_modules/,
+      options: {
+        presets: ["@babel/preset-react"]
+      }
+    }
+  ]
 
-const options = {} // default is empty for most cases
-
-module.exports = aliasWebpack(options)
-module.exports.jest = aliasJest(options)
+  return config;
+}
