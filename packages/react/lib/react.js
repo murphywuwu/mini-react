@@ -1,12 +1,11 @@
-module.exports = {
-  createElement: function (type, props, children) {
- 
-    return {
-      type,
-      props: {
-        children,
-        ...props,
-      },
-    }
-  },
+function createElement(type, props, children) {
+  return {
+    type,
+    props: {
+      children,
+      ...props,
+    },
+  }
 }
+
+exports.createElement = createElement;
