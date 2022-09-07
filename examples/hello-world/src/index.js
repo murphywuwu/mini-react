@@ -1,5 +1,5 @@
-import React from '@packages/react'
-import ReactDOM from '@packages/react-dom'
+import React from 'react'
+import ReactDOM from 'react-dom'
 
 const element = <h1>hello, world</h1>
 
